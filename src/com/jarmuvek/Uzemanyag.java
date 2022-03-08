@@ -2,6 +2,10 @@ package com.jarmuvek;
 
 public class Uzemanyag {
 
+    public Uzemanyag(int mennyiseg) {
+        this.mennyiseg = mennyiseg;
+    }
+
     enum Tipus {
         Benzin, Dizel
     }

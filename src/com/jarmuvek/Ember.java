@@ -2,6 +2,10 @@ package com.jarmuvek;
 
 public class Ember {
 
+    public Ember(String nev) {
+        this.nev = nev;
+    }
+
     private String nev;
     private int kor;
 
