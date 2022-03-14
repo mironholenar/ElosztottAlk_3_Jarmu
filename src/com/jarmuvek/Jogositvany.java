@@ -5,7 +5,7 @@ public class Jogositvany {
     public Jogositvany(String jogositvanyKod) {
         this.jogositvanyKod = jogositvanyKod;
     }
-    
+
     enum Kategoria {
         A1, A2, A, B, C, D, K, T, V
     }

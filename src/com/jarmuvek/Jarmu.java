@@ -1,15 +1,28 @@
 package com.jarmuvek;
 
-public class Jarmu {
+public abstract class Jarmu {
 
     enum Szin {
         Piros, Kek, Sarga, Feher, Fekete
+    }
+
+    enum MotorStatusz {
+        Ki, Be
     }
 
     private String nev;
     private Szin szin;
     private Ember tulajdonos;
     private Uzemanyag uzemanyag;
+    private MotorStatusz motorstatusz;
+
+    public Jarmu(String nev, Szin szin, Ember tulajdonos, Uzemanyag uzemanyag) {
+        this.nev = nev;
+        this.szin = szin;
+        this.tulajdonos = tulajdonos;
+        this.uzemanyag = uzemanyag;
+        this.motorstatusz = MotorStatusz.Ki;
+    }
 
     public String getNev() {
         return nev;
@@ -43,10 +56,26 @@ public class Jarmu {
         this.uzemanyag = uzemanyag;
     }
 
-    public Jarmu(String nev, Szin szin, Ember tulajdonos, Uzemanyag uzemanyag) {
-        this.nev = nev;
-        this.szin = szin;
-        this.tulajdonos = tulajdonos;
-        this.uzemanyag = uzemanyag;
+    public MotorStatusz getMotorstatusz() {
+        return motorstatusz;
     }
+
+    public void setMotorstatusz(MotorStatusz motorstatusz) {
+        this.motorstatusz = motorstatusz;
+    }
+
+    public void Beinditas()
+    {
+        if(this.uzemanyag.getMennyiseg() > 0)
+        {
+            this.motorstatusz = MotorStatusz.Be;
+        }
+    }
+
+    public void Leallitas()
+    {
+        this.motorstatusz = MotorStatusz.Ki;
+    }
+
+
 }
