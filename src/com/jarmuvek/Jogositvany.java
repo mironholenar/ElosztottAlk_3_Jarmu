@@ -2,22 +2,26 @@ package com.jarmuvek;
 
 public class Jogositvany {
 
-    public Jogositvany(String jogositvanyKod) {
-        this.jogositvanyKod = jogositvanyKod;
-    }
-
     enum Kategoria {
         A1, A2, A, B, C, D, K, T, V
     }
 
-    private String jogositvanyKod;
+    public static int autoID = 0;
 
-    public String getJogositvanyKod() {
+    public int jogositvanyKod;
+
+    public Jogositvany() {
+        this.jogositvanyKod = autoID + 1;
+    }
+
+    public int getJogositvanyKod() {
         return jogositvanyKod;
     }
 
-    public void setJogositvanyKod(String jogositvanyKod) {
+    public void setJogositvanyKod(int jogositvanyKod) {
         this.jogositvanyKod = jogositvanyKod;
     }
+
+
 }
 

@@ -2,12 +2,13 @@ package com.jarmuvek;
 
 public class Ember {
 
+    private String nev;
+    private int kor;
+    private Jogositvany jogositvany;
+
     public Ember(String nev) {
         this.nev = nev;
     }
-
-    private String nev;
-    private int kor;
 
     public void setKor(int kor) {
         this.kor = kor;
@@ -25,5 +26,11 @@ public class Ember {
         return nev;
     }
 
+    public Jogositvany getJogositvany() {
+        return jogositvany;
+    }
 
+    public void setJogositvany(Jogositvany jogositvany) {
+        this.jogositvany = jogositvany;
+    }
 }
