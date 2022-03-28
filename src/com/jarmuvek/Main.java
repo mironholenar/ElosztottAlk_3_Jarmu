@@ -1,12 +1,22 @@
 package com.jarmuvek;
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
+import java.util.ArrayList;
 
 
 public class Main {
 
+    ArrayList<Jarmu> Jarmuvek = new ArrayList<Jarmu>();
+
     public static void main(String[] args) {
-        System.out.println("Hello World test3");
+        Demo();
+    }
+
+
+    public static void Demo()
+    {
+        Ember e1 = new Ember("Val Aki", 20);
+        Ember e2 = new Ember("X Y", 17);
         mentes();
     }
 
@@ -22,3 +32,5 @@ public class Main {
         }
     }
 }
+
+
