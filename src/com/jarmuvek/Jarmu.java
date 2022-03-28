@@ -48,6 +48,14 @@ public abstract class Jarmu {
         this.tulajdonos = tulajdonos;
     }
 
+    public Ember getSofor() {
+        return sofor;
+    }
+
+    public void setSofor(Ember sofor) {
+        this.sofor = sofor;
+    }
+
     public Uzemanyag getUzemanyag() {
         return uzemanyag;
     }
