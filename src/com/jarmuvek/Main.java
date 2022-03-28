@@ -1,14 +1,25 @@
 package com.jarmuvek;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Main {
 
+    ArrayList<Jarmu> Jarmuvek = new ArrayList<>();
+
     public static void main(String[] args) {
-        System.out.println("Hello World test3");
+        Demo();
+    }
+
+
+    public static void Demo()
+    {
+        Ember e1 = new Ember("Val Aki", 20);
+        Ember e2 = new Ember("X Y", 17);
         mentes();
     }
 
@@ -39,3 +50,5 @@ public class Main {
         }
     }
 }
+
+
