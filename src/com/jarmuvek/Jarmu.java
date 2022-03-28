@@ -13,13 +13,13 @@ public abstract class Jarmu {
     private String nev;
     private Szin szin;
     private Ember tulajdonos;
+    private Ember sofor;
     private Uzemanyag uzemanyag;
     private MotorStatusz motorstatusz;
 
-    public Jarmu(String nev, Szin szin, Ember tulajdonos, Uzemanyag uzemanyag) {
+    public Jarmu(String nev, Szin szin, Uzemanyag uzemanyag) {
         this.nev = nev;
         this.szin = szin;
-        this.tulajdonos = tulajdonos;
         this.uzemanyag = uzemanyag;
         this.motorstatusz = MotorStatusz.Ki;
     }
@@ -70,6 +70,16 @@ public abstract class Jarmu {
         {
             this.motorstatusz = MotorStatusz.Be;
         }
+    }
+
+    public void TulajdonosBeallitasa(Ember tulajdonos)
+    {
+        this.tulajdonos = tulajdonos;
+    }
+
+    public void SoforBeallitasa(Ember sofor)
+    {
+        this.sofor = sofor;
     }
 
     public void Leallitas()
