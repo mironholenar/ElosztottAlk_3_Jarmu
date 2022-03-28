@@ -6,8 +6,9 @@ public class Ember {
     private int kor;
     private Jogositvany jogositvany;
 
-    public Ember(String nev) {
+    public Ember(String nev, int kor) {
         this.nev = nev;
+        this.kor = kor;
     }
 
     public void setKor(int kor) {
@@ -30,7 +31,9 @@ public class Ember {
         return jogositvany;
     }
 
-    public void setJogositvany(Jogositvany jogositvany) {
-        this.jogositvany = jogositvany;
+    public void jogositvanySzerzes(Jogositvany jogositvany) {
+        if (this.kor >= 18) {
+            this.jogositvany = jogositvany;
+        }
     }
 }

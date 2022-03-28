@@ -12,6 +12,7 @@ public class Jogositvany {
 
     public Jogositvany() {
         this.jogositvanyKod = autoID + 1;
+        autoID++;
     }
 
     public int getJogositvanyKod() {
