@@ -1,8 +1,8 @@
 package com.jarmuvek;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;   // Import the FileWriter class
-import java.io.IOException;  // Import the IOException class to handle errors
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Demo();
+        olvas();
     }
 
 
@@ -20,7 +21,6 @@ public class Main {
     {
         Ember e1 = new Ember("Val Aki", 20);
         Ember e2 = new Ember("X Y", 17);
-        mentes();
     }
 
     public static void mentes() {
@@ -41,7 +41,11 @@ public class Main {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                System.out.println(data);
+                String[] beolvasottJarmuvek = data.split(";", 2);
+                System.out.printf("Jármű neve: %s", beolvasottJarmuvek[0]);
+                System.out.printf(" Jármű tulajdonosa: %s", beolvasottJarmuvek[1]);
+
+                System.out.println(" ");
             }
             myReader.close();
         } catch (FileNotFoundException e) {
