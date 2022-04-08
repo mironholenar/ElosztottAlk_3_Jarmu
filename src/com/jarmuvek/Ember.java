@@ -1,5 +1,7 @@
 package com.jarmuvek;
 
+import java.util.Optional;
+
 public class Ember {
 
     private String nev;
@@ -28,12 +30,25 @@ public class Ember {
     }
 
     public Jogositvany getJogositvany() {
-        return jogositvany;
+        if(jogositvany != null)
+        {
+            return jogositvany;
+        }
+        else
+        {
+            System.out.println(this.nev + " nincsen jogosítványa.");
+            return jogositvany;
+        }
+
     }
 
-    public void jogositvanySzerzes(Jogositvany jogositvany) {
+    public void jogositvanySzerzes() {
         if (this.kor >= 18) {
-            this.jogositvany = jogositvany;
+            this.jogositvany = new Jogositvany(true);
+        }
+        else
+        {
+            this.jogositvany = new Jogositvany(false);
         }
     }
 }

@@ -1,4 +1,5 @@
 package com.jarmuvek;
+import javax.lang.model.type.NullType;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -9,18 +10,31 @@ import java.util.Scanner;
 
 public class Main {
 
-    ArrayList<Jarmu> Jarmuvek = new ArrayList<>();
+    public static ArrayList<Jarmu> Jarmuvek = new ArrayList<>();
 
     public static void main(String[] args) {
         Demo();
         olvas();
     }
 
-
-    public static void Demo()
+    public static void Demo() throws NullPointerException
     {
         Ember e1 = new Ember("Val Aki", 20);
         Ember e2 = new Ember("X Y", 17);
+
+        e1.jogositvanySzerzes();
+        System.out.println(e1.getJogositvany().getJogositvanyKod());
+
+        e2.jogositvanySzerzes();
+        System.out.println(e2.getJogositvany().getJogositvanyKod());
+
+
+
+        Auto a1 = new Auto("Audi A6", Jarmu.Szin.Fekete,new Uzemanyag(Uzemanyag.Tipus.Dizel,30));
+        a1.Beinditas(e1,e1);
+
+        Jarmuvek.add(a1);
+
     }
 
     public static void mentes() {
@@ -36,6 +50,7 @@ public class Main {
     }
 
     public static void olvas() {
+
         try {
             File myObj = new File("jarmuvek.txt");
             Scanner myReader = new Scanner(myObj);

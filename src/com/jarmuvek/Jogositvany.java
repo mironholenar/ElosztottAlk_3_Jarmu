@@ -10,13 +10,32 @@ public class Jogositvany {
 
     public int jogositvanyKod;
 
-    public Jogositvany() {
-        this.jogositvanyKod = autoID + 1;
-        autoID++;
+    public Jogositvany(boolean valid) {
+        if(valid)
+        {
+            this.jogositvanyKod = autoID + 1;
+            autoID++;
+        }
+        else
+        {
+            this.jogositvanyKod = -1; //Mivel az ember classban létezik egy jogositvány példány, ezért muszáj létrehozni egy érvénytelen, mert nem adhatunk vissza null értéket!
+        }
+
+
     }
 
+
     public int getJogositvanyKod() {
-        return jogositvanyKod;
+        if(this.jogositvanyKod > 0)
+        {
+            return jogositvanyKod;
+        }
+        else
+        {
+            System.out.println("Nem sikerült jogositványt szerezni!");
+            return jogositvanyKod;
+        }
+
     }
 
     public void setJogositvanyKod(int jogositvanyKod) {
