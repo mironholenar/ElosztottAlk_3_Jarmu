@@ -29,7 +29,7 @@ public class Main {
         Jarmuvek.add(a1);
 
         Auto a2 = new Auto("Mercedes CLS 63 AMG", Jarmu.Szin.Feher,new Uzemanyag(Uzemanyag.Tipus.Benzin,30));
-        a2.beinditas(e2,e2);
+        a2.beinditas(e2,e1);
         Jarmuvek.add(a2);
 
 
@@ -57,6 +57,14 @@ public class Main {
                 String[] beolvasottJarmuvek = data.split(";", 2);
                 System.out.printf("Jármű neve: %s", beolvasottJarmuvek[0]);
                 System.out.printf(" Jármű tulajdonosa: %s", beolvasottJarmuvek[1]);
+                    switch (beolvasottJarmuvek[0]) {
+                        case "jarmu":
+                            new Auto(beolvasottJarmuvek[1], Jarmu.Szin.of(beolvasottJarmuvek[2]),new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]),Integer.parseInt(beolvasottJarmuvek[4])));
+                        case "tulaj":
+                            new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]));
+                        case "sofor":
+                            new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]));
+                    }
 
                 System.out.println(" ");
             }

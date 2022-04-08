@@ -1,9 +1,23 @@
 package com.jarmuvek;
 
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static com.jarmuvek.Jarmu.Szin.ISMERETLEN;
+
 public abstract class Jarmu {
 
     enum Szin {
-        Piros, Kek, Sarga, Feher, Fekete
+        Piros, Kek, Sarga, Feher, Fekete, ISMERETLEN;
+
+        private static final Map<String, Szin> ENUM_MAP = Stream.of(Szin.values())
+                .collect(Collectors.toMap(Enum::name, Function.identity()));
+
+        public static Szin of(final String name) {
+            return ENUM_MAP.getOrDefault(name, ISMERETLEN);
+        }
     }
 
     enum MotorStatusz {
@@ -119,6 +133,8 @@ public abstract class Jarmu {
     {
         this.motorstatusz = MotorStatusz.Ki;
     }
+
+
 
 
 }
