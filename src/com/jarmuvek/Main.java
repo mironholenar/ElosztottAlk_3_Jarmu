@@ -30,7 +30,7 @@ public class Main {
 
 
         Auto a1 = new Auto("Audi A6", Jarmu.Szin.Fekete,new Uzemanyag(Uzemanyag.Tipus.Dizel,30));
-        a1.Beinditas(e1,e1);
+        a1.beinditas(e1,e1);
 
         Jarmuvek.add(a1);
 

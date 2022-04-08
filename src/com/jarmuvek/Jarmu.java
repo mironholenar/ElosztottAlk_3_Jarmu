@@ -73,32 +73,32 @@ public abstract class Jarmu {
     }
 
 
-    public void Beinditas(Ember tulajdonos, Ember sofor)
+    public void beinditas(Ember tulajdonos, Ember sofor)
     {
         if(this.uzemanyag.getMennyiseg() > 0)
         {
             this.motorstatusz = MotorStatusz.Be;
-            TulajdonosBeallitasa(tulajdonos);
-            SoforBeallitasa(sofor);
+            tulajdonosBeallitasa(tulajdonos);
+            soforBeallitasa(sofor);
         }
 
     }
 
-    public void Beinditas() {
+    public void beinditas() {
         if (this.uzemanyag.getMennyiseg() > 0)
         {
             this.motorstatusz = MotorStatusz.Be;
         }
     }
 
-    public void TulajdonosBeallitasa(Ember tulajdonos)
+    public void tulajdonosBeallitasa(Ember tulajdonos)
     {
         if(this.motorstatusz == MotorStatusz.Be) {
             this.tulajdonos = tulajdonos;
         }
     }
 
-    public void SoforBeallitasa(Ember sofor)
+    public void soforBeallitasa(Ember sofor)
     {
         if(this.motorstatusz == MotorStatusz.Be)
         {
@@ -106,7 +106,7 @@ public abstract class Jarmu {
         }
     }
 
-    public void Leallitas()
+    public void leallitas()
     {
         this.motorstatusz = MotorStatusz.Ki;
     }
