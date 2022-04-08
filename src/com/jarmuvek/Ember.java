@@ -1,7 +1,5 @@
 package com.jarmuvek;
 
-import java.util.Optional;
-
 public class Ember {
 
     private String nev;
