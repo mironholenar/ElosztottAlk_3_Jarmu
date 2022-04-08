@@ -60,9 +60,7 @@ public class Main {
                     switch (beolvasottJarmuvek[0]) {
                         case "jarmu":
                             new Auto(beolvasottJarmuvek[1], Jarmu.Szin.of(beolvasottJarmuvek[2]),new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]),Integer.parseInt(beolvasottJarmuvek[4])));
-                        case "tulaj":
-                            new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]));
-                        case "sofor":
+                        case "ember":
                             new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]));
                     }
 
