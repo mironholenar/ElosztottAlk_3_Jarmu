@@ -63,7 +63,21 @@ public class Main {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("ERROR");
+           fajlLetrehoz();
+           // e.printStackTrace();
+        }
+    }
+
+    public static void fajlLetrehoz() {
+        try {
+            File myObj = new File("jarmuvek.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("Fájl létrehozva: " + myObj.getName());
+            } else {
+                System.out.println("Fájl már létezik.");
+            }
+        } catch (IOException e) {
+            System.out.println("Hiba történt.");
             e.printStackTrace();
         }
     }
