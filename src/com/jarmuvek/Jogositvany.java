@@ -24,6 +24,20 @@ public class Jogositvany {
 
     }
 
+    public Jogositvany(int id)
+    {
+        if(id > 0)
+        {
+            autoID = id;
+            this.jogositvanyKod = id;
+        }
+        else
+        {
+            this.jogositvanyKod = -1;
+        }
+
+
+    }
 
     public int getJogositvanyKod() {
         if(this.jogositvanyKod > 0)
