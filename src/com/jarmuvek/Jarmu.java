@@ -38,6 +38,15 @@ public abstract class Jarmu {
         this.motorstatusz = MotorStatusz.Ki;
     }
 
+    public Jarmu(String nev, Szin szin, Uzemanyag uzemanyag, Ember tulajdonos, Ember sofor)
+    {
+        this.nev = nev;
+        this.szin = szin;
+        this.uzemanyag = uzemanyag;
+        this.tulajdonos = tulajdonos;
+        this.sofor = sofor;
+    }
+
     public String getNev() {
         return nev;
     }
@@ -110,7 +119,15 @@ public abstract class Jarmu {
     public void beinditas() {
         if (this.uzemanyag.getMennyiseg() > 0)
         {
-            this.motorstatusz = MotorStatusz.Be;
+            if(sofor.getJogositvany().jogositvanyKod != -1)
+            {
+                this.motorstatusz = MotorStatusz.Be;
+                System.out.println(this.nev + " Sikeresen beindult!");
+            }
+            else
+            {
+                System.out.println("Nem sikerült beinditani mert " + sofor.getNev() + " nincs jogosítványa!" );
+            }
         }
     }
 

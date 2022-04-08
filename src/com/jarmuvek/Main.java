@@ -12,11 +12,44 @@ public class Main {
     public static ArrayList<Jarmu> Jarmuvek = new ArrayList<>();
 
     public static void main(String[] args) {
-        Demo();
-        fajlOlvas();
+        //fajlOlvas();
+        demoAdatok();
+        Listazas();
     }
 
-    public static void Demo() throws NullPointerException
+
+
+    public static void Listazas()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println();
+        int i = 0;
+        for(;i<Jarmuvek.size();i++) {
+            System.out.println(i + " - " + Jarmuvek.get(i).getNev());
+        }
+
+        boolean kilepes = false;
+
+        System.out.println("Melyik járművet indítsuk be? Irja be a számot!, vagy írja be " + ((int)i+(int)1) + " - a kilépéshez");
+
+        do
+        {
+            int valasz = scan.nextInt();
+            if(valasz == i+1)
+            {
+                kilepes = true;
+            }
+            else
+            {
+                Jarmuvek.get(valasz).beinditas();
+            }
+
+        }
+        while(!kilepes);
+
+    }
+
+    public static void demoAdatok() throws NullPointerException
     {
         Ember e1 = new Ember("Val Aki", 20);
         Ember e2 = new Ember("X Y", 17);
