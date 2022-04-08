@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Demo();
-        olvas();
+        fajlOlvas();
     }
 
     public static void Demo() throws NullPointerException
@@ -48,7 +48,7 @@ public class Main {
         }
     }
 
-    public static void olvas() {
+    public static void fajlOlvas() {
 
         try {
             File myObj = new File("jarmuvek.txt");
