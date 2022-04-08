@@ -77,9 +77,18 @@ public abstract class Jarmu {
     {
         if(this.uzemanyag.getMennyiseg() > 0)
         {
-            this.motorstatusz = MotorStatusz.Be;
-            tulajdonosBeallitasa(tulajdonos);
-            soforBeallitasa(sofor);
+            if(sofor.getJogositvany().jogositvanyKod != -1)
+            {
+                this.motorstatusz = MotorStatusz.Be;
+                tulajdonosBeallitasa(tulajdonos);
+                soforBeallitasa(sofor);
+                System.out.println(this.nev + " Sikeresen beindult!");
+            }
+            else
+            {
+                System.out.println("Nem sikerült beinditani mert " + sofor.getNev() + " nincs jogosítványa!" );
+            }
+
         }
 
     }
