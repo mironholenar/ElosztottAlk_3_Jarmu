@@ -22,17 +22,16 @@ public class Main {
         Ember e2 = new Ember("X Y", 17);
 
         e1.jogositvanySzerzes();
-        System.out.println(e1.getJogositvany().getJogositvanyKod());
-
         e2.jogositvanySzerzes();
-        System.out.println(e2.getJogositvany().getJogositvanyKod());
-
-
 
         Auto a1 = new Auto("Audi A6", Jarmu.Szin.Fekete,new Uzemanyag(Uzemanyag.Tipus.Dizel,30));
         a1.beinditas(e1,e1);
-
         Jarmuvek.add(a1);
+
+        Auto a2 = new Auto("Mercedes CLS 63 AMG", Jarmu.Szin.Feher,new Uzemanyag(Uzemanyag.Tipus.Benzin,30));
+        a2.beinditas(e2,e2);
+        Jarmuvek.add(a2);
+
 
     }
 
