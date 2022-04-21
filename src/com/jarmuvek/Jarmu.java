@@ -45,6 +45,7 @@ public abstract class Jarmu {
         this.uzemanyag = uzemanyag;
         this.tulajdonos = tulajdonos;
         this.sofor = sofor;
+        this.motorstatusz = MotorStatusz.Ki;
     }
 
     public String getNev() {
