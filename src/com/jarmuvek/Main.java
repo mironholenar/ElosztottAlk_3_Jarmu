@@ -10,11 +10,13 @@ import java.util.Scanner;
 public class Main {
 
     public static ArrayList<Jarmu> Jarmuvek = new ArrayList<>();
+    public static ArrayList<Ember> Emberek = new ArrayList<>();
 
     public static void main(String[] args) {
-        //fajlOlvas();
+        fajlOlvas();
         demoAdatok();
         Listazas();
+        mentes();
     }
 
 
@@ -71,13 +73,34 @@ public class Main {
     public static void mentes() {
         try {
             FileWriter myWriter = new FileWriter("jarmuvek.txt");
-            myWriter.write("TEST23!");
+
+            int k = 0;
+            for(;k<Emberek.size();k++) {
+                myWriter.write("ember;" + Emberek.get(k).getNev() + ";" + Emberek.get(k).getKor() + ";" + Emberek.get(k).getAzonosito());
+                myWriter.write("\n");
+            }
+
+            int i = 0;
+            for(;i<Jarmuvek.size();i++) {
+                myWriter.write("jarmu;"+ Jarmuvek.get(i).getNev() + ";" + Jarmuvek.get(i).getSzin() + ";" + Jarmuvek.get(i).getUzemanyag().getTipus() + ";" + Jarmuvek.get(i).getUzemanyag().getMennyiseg() + ";" + Jarmuvek.get(i).getTulajdonos().getAzonosito()+";" + Jarmuvek.get(i).getSofor().getAzonosito());
+                myWriter.write("\n");
+            }
+
             myWriter.close();
             System.out.println("Sikeres fájlba írás");
         } catch (IOException e) {
             System.out.println("ERROR.");
             e.printStackTrace();
         }
+    }
+
+    public static Ember getEmber(String id) {
+        for (Ember ember : Emberek) {
+            if (ember.getAzonosito() == Integer.parseInt(id)) {
+                return ember;
+            }
+        }
+        return new Ember("Nincs", 1);
     }
 
     public static void fajlOlvas() {
@@ -87,14 +110,39 @@ public class Main {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                String[] beolvasottJarmuvek = data.split(";", 2);
-                System.out.printf("Jármű neve: %s", beolvasottJarmuvek[0]);
-                System.out.printf(" Jármű tulajdonosa: %s", beolvasottJarmuvek[1]);
+                String[] beolvasottJarmuvek = data.split(";", 8);
+
                     switch (beolvasottJarmuvek[0]) {
                         case "jarmu":
-                            new Auto(beolvasottJarmuvek[1], Jarmu.Szin.of(beolvasottJarmuvek[2]),new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]),Integer.parseInt(beolvasottJarmuvek[4])));
+
+
+                            Ember tulaj = new Ember("NULL", 0) ;
+
+                            tulaj = getEmber(beolvasottJarmuvek[5]);
+
+                             //if (tulaj != null) auto.tulajdonosBeallitasa(tulaj);
+
+                            Ember sofor = new Ember("NULL", 0) ;
+                            sofor.getJogositvany();
+                            sofor = getEmber(beolvasottJarmuvek[6]);
+                            System.out.println(sofor.getNev());
+                        //    if (sofor != null) auto.soforBeallitasa(sofor);
+
+                            Auto auto = new Auto(
+                                    beolvasottJarmuvek[1],
+                                    Jarmu.Szin.of(beolvasottJarmuvek[2]),
+                                    new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]), Integer.parseInt(beolvasottJarmuvek[4])),
+                                    tulaj,
+                                    sofor
+                                    );
+                            Jarmuvek.add(auto);
+                            break;
                         case "ember":
-                            new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]));
+
+                           Ember ember = new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]), Integer.parseInt(beolvasottJarmuvek[3]));
+                           ember.jogositvanySzerzes();
+                           Emberek.add(ember);
+                        break;
                     }
 
                 System.out.println(" ");
@@ -105,6 +153,8 @@ public class Main {
            // e.printStackTrace();
         }
     }
+
+
 
     public static void fajlLetrehoz() {
         try {

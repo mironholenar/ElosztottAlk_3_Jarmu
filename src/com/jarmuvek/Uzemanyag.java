@@ -17,10 +17,11 @@ public class Uzemanyag {
         }
     }
 
+    private Tipus tipus;
     private int mennyiseg;
 
     public Uzemanyag(Tipus tipus, int mennyiseg) {
-
+        this.tipus = tipus;
         this.mennyiseg = mennyiseg;
     }
 
@@ -30,5 +31,8 @@ public class Uzemanyag {
 
     public int getMennyiseg() {
         return mennyiseg;
+    }
+    public Tipus getTipus() {
+        return tipus;
     }
 }
