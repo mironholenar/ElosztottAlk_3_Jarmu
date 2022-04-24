@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -73,6 +74,9 @@ public class Main {
     public static void mentes() {
         try {
             FileWriter myWriter = new FileWriter("jarmuvek.txt");
+
+           Collections.sort(Emberek, (o1, o2) -> o1.getNev().compareTo(o2.getNev()));
+
 
             int k = 0;
             for(;k<Emberek.size();k++) {
