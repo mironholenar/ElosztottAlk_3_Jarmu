@@ -4,3 +4,5 @@ jarmu;Ferrari 458;Feher;Benzin;30;2;1
 jarmu;Lada Niva;Kek;Benzin;30;2;1
 jarmu;Audi A6;Fekete;Dizel;30;1;2
 jarmu;Mercedes CLS 63 AMG;Feher;Benzin;30;1;2
+jarmu;Teszt Autó;Sarga;Benzin;40;12;14
+jarmu;Teszt Motor;Fekete;Benzin;40;16;18
