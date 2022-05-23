@@ -7,3 +7,7 @@
 ### JDK Verzió: 17
 
 ### JavaFX Verzió: 17.0.2
+
+<br/>
+
+<img src="https://i.imgur.com/LEc7ASg.png">
