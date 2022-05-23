@@ -101,7 +101,12 @@ public class Main extends Application {
 
             int i = 0;
             for(;i<Jarmuvek.size();i++) {
-                myWriter.write("jarmu;"+ Jarmuvek.get(i).getNev() + ";" + Jarmuvek.get(i).getSzin() + ";" + Jarmuvek.get(i).getUzemanyag().getTipus() + ";" + Jarmuvek.get(i).getUzemanyag().getMennyiseg() + ";" + Jarmuvek.get(i).getTulajdonos().getAzonosito()+";" + Jarmuvek.get(i).getSofor().getAzonosito());
+                String tipus = "motor";
+                if (Jarmuvek.get(i).getClass().getName().equals("com.jarmuvek.Auto")) {
+                    tipus = "auto";
+                }
+
+                myWriter.write("jarmu;"+ Jarmuvek.get(i).getNev() + ";" + Jarmuvek.get(i).getSzin() + ";" + Jarmuvek.get(i).getUzemanyag().getTipus() + ";" + Jarmuvek.get(i).getUzemanyag().getMennyiseg() + ";" + Jarmuvek.get(i).getTulajdonos().getAzonosito()+";" + Jarmuvek.get(i).getSofor().getAzonosito()+";"+tipus);
                 myWriter.write("\n");
             }
 
@@ -146,15 +151,27 @@ public class Main extends Application {
                             sofor = getEmber(beolvasottJarmuvek[6]);
                             System.out.println(sofor.getNev());
                         //    if (sofor != null) auto.soforBeallitasa(sofor);
+                            if (beolvasottJarmuvek[7].equals("motor")) {
+                                Motor motor = new Motor(
+                                        beolvasottJarmuvek[1],
+                                        Jarmu.Szin.of(beolvasottJarmuvek[2]),
+                                        new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]), Integer.parseInt(beolvasottJarmuvek[4])),
+                                        tulaj,
+                                        sofor
+                                );
+                                Jarmuvek.add(motor);
+                            }else {
+                                Auto auto = new Auto(
+                                        beolvasottJarmuvek[1],
+                                        Jarmu.Szin.of(beolvasottJarmuvek[2]),
+                                        new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]), Integer.parseInt(beolvasottJarmuvek[4])),
+                                        tulaj,
+                                        sofor
+                                );
+                                Jarmuvek.add(auto);
+                            }
 
-                            Auto auto = new Auto(
-                                    beolvasottJarmuvek[1],
-                                    Jarmu.Szin.of(beolvasottJarmuvek[2]),
-                                    new Uzemanyag(Uzemanyag.Tipus.of(beolvasottJarmuvek[3]), Integer.parseInt(beolvasottJarmuvek[4])),
-                                    tulaj,
-                                    sofor
-                                    );
-                            Jarmuvek.add(auto);
+
                             break;
                         case "ember":
 
