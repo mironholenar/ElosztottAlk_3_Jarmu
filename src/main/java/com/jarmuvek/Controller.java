@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     ////
+
     //Ember Hozzáadása
     ////
     @FXML
