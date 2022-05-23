@@ -8,6 +8,8 @@
 
 ### JavaFX Verzió: 17.0.2
 
+#### Indítás: Maven javafx:run
+
 <br/>
 
 <img src="https://i.imgur.com/LEc7ASg.png">
