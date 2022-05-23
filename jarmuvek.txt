@@ -1,12 +1,6 @@
 ember;Hegedus Bela;25;1;1
 ember;Kovacs Zoltan;31;2;2
-ember;Teszt géza;18;19;3
-ember;sdf;18;36;4
-ember;teszt;18;53;-1
 jarmu;Ferrari 458;Feher;Benzin;30;2;1;auto
 jarmu;Lada Niva;Kek;Benzin;30;2;1;auto
 jarmu;Audi A6;Fekete;Dizel;30;1;2;auto
 jarmu;Mercedes CLS 63 AMG;Feher;Benzin;30;1;2;auto
-jarmu;Teszt Autó;Sarga;Benzin;40;63;65;auto
-jarmu;Teszt Motor;Fekete;Benzin;40;67;69;auto
-jarmu;MOTORR;Piros;Benzin;30;71;73;motor
