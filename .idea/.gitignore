@@ -2,7 +2,6 @@
 /shelf/
 /workspace.xml
 /out/
-.idea/libraries
 !.mvn/wrapper/maven-wrapper.jar
 target/
 pom.xml.tag
