@@ -76,6 +76,8 @@ public class Ember {
 
 
 
+
+
     public int getAzonosito() {
         return azonosito;
     }
@@ -83,6 +85,16 @@ public class Ember {
     public void jogositvanySzerzes() {
         if (this.kor >= 18) {
             this.jogositvany = new Jogositvany(true);
+        }
+        else
+        {
+            this.jogositvany = new Jogositvany(false);
+        }
+    }
+
+    public void jogositvanySzerzes(int kod) {
+        if (this.kor >= 18) {
+            this.jogositvany = new Jogositvany(kod);
         }
         else
         {

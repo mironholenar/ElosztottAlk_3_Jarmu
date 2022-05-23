@@ -95,7 +95,7 @@ public class Main extends Application {
 
             int k = 0;
             for(;k<Emberek.size();k++) {
-                myWriter.write("ember;" + Emberek.get(k).getNev() + ";" + Emberek.get(k).getKor() + ";" + Emberek.get(k).getAzonosito());
+                myWriter.write("ember;" + Emberek.get(k).getNev() + ";" + Emberek.get(k).getKor() + ";" + Emberek.get(k).getAzonosito() + ";" + Emberek.get(k).getJogositvany().jogositvanyKod );
                 myWriter.write("\n");
             }
 
@@ -159,7 +159,12 @@ public class Main extends Application {
                         case "ember":
 
                            Ember ember = new Ember(beolvasottJarmuvek[1], Integer.parseInt(beolvasottJarmuvek[2]), Integer.parseInt(beolvasottJarmuvek[3]));
-                           ember.jogositvanySzerzes();
+                           if (Integer.parseInt(beolvasottJarmuvek[4]) >= 0) {
+                               ember.jogositvanySzerzes(Integer.parseInt(beolvasottJarmuvek[4]));
+                           }else {
+                               ember.jogositvanySzerzes(-1);
+                           }
+
                            Emberek.add(ember);
                         break;
                     }
