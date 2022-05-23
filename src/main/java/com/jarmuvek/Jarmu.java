@@ -104,7 +104,7 @@ public abstract class Jarmu {
     {
         if(this.uzemanyag.getMennyiseg() > 0)
         {
-            if(sofor.getJogositvany().jogositvanyKod != -1)
+            if(sofor.getJogositvany().jogositvanyKod != -1) //Ha érvénytelen a jogosítvány akkor nem inditjuk be a járművet
             {
                 this.motorstatusz = MotorStatusz.Be;
                 tulajdonosBeallitasa(tulajdonos);

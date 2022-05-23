@@ -151,17 +151,17 @@ public class Controller implements Initializable {
 
         //Spinner
 
-        SpinnerValueFactory<Integer> spinner_eh = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,120,18);
+        SpinnerValueFactory<Integer> spinner_eh = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,120,18); //Spinner értékeinek beállítása
         SpinnerValueFactory<Integer> spinner_em = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,120,18);
         SpinnerValueFactory<Integer> spinner_uzemanyag = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,100,30);
         SpinnerValueFactory<Integer> spinner_uzemanyag2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(0,100,30);
-        eh_kor.setValueFactory(spinner_eh);
+        eh_kor.setValueFactory(spinner_eh); //Spinnerek értékéinek hozzárendelése
         em_kor.setValueFactory(spinner_em);
         jh_uzemanyagmennyiseg.setValueFactory(spinner_uzemanyag);
         jm_uzemanyagmennyiseg.setValueFactory(spinner_uzemanyag2);
 
 
-        //TableView
+        //TableView - Beállítjuk minden oszlopnak a típusát
         emberek_tableview_nev.setCellValueFactory(new PropertyValueFactory<Ember,String>("Nev"));
         emberek_tableview_kor.setCellValueFactory(new PropertyValueFactory<Ember,Integer>("Kor"));
         emberek_tableview_jogositvany.setCellValueFactory(jogositvany -> new SimpleStringProperty(jogositvany.getValue().getJogositvanyValidity()));
@@ -175,7 +175,7 @@ public class Controller implements Initializable {
         jarmuvek_tableview_uzemanyagmennyiseg.setCellValueFactory(uzemanyagmennyiseg -> new SimpleIntegerProperty(uzemanyagmennyiseg.getValue().getUzemanyag().getMennyiseg()).asObject());
         jarmuvek_tableview_motorstatusz.setCellValueFactory(new PropertyValueFactory<Jarmu,Jarmu.MotorStatusz>("Motorstatusz"));
 
-        //ChoiceBox
+        //ChoiceBox - Hozzáadjuk a megfelelő értékeket, például az üzemanyag típusokat
         jh_tipus.getItems().addAll(tipusok);
         jh_tipus.setValue(tipusok[0]);
 
@@ -198,7 +198,7 @@ public class Controller implements Initializable {
         alert.show();
     }
 
-    public void refreshTableViewContent()
+    public void refreshTableViewContent() //Frissítjük a listák alapján a két tableviewt
     {
         emberek_tableview.setItems(FXCollections.observableArrayList(Main.Emberek));
         emberek_tableview.refresh();
@@ -225,7 +225,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void eh_hozzad_onaction()
+    protected void eh_hozzad_onaction() // Ember Hozzáadása
     {
         if(eh_nev.getText() != null && eh_nev.getText() != "")
         {
@@ -240,7 +240,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void em_modosit_onaction()
+    protected void em_modosit_onaction() // Ember módosítása
     {
 
         Ember ember = emberek_tableview.getSelectionModel().getSelectedItem();
@@ -266,7 +266,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void em_torles_onaction()
+    protected void em_torles_onaction() // Ember törlése
     {
         Ember ember = emberek_tableview.getSelectionModel().getSelectedItem();
 
@@ -283,13 +283,13 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void js_jogositvanyszerzese_onaction()
+    protected void js_jogositvanyszerzese_onaction() //Jogosítvány szerzése
     {
         Ember ember = emberek_tableview.getSelectionModel().getSelectedItem();
 
         if(ember != null)
         {
-            if(ember.getJogositvany().jogositvanyKod == -1)
+            if(ember.getJogositvany().jogositvanyKod == -1) //Ha érvénytelen a jogosítvány (tehát még nincs mert default érték)
             {
                 if(ember.getKor() >= 18)
                 {
@@ -316,7 +316,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void jh_hozzaad_onaction()
+    protected void jh_hozzaad_onaction() // Jármű hozzáadása típus szerint
     {
         if(jh_nev.getText() != null && jh_nev.getText() != "")
         {
@@ -340,7 +340,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void jm_modosit_onaction()
+    protected void jm_modosit_onaction() // Jármű módosítása
     {
         Jarmu jarmu = jarmuvek_tableview.getSelectionModel().getSelectedItem();
 
@@ -372,7 +372,7 @@ public class Controller implements Initializable {
     }
 
      @FXML
-    protected void jm_torles_onaction()
+    protected void jm_torles_onaction() //Jármű törlése
      {
         Jarmu jarmu = jarmuvek_tableview.getSelectionModel().getSelectedItem();
 
@@ -390,13 +390,13 @@ public class Controller implements Initializable {
      }
 
     @FXML
-    protected void jb_beindit_onaction()
+    protected void jb_beindit_onaction() //Motor beindítása
     {
         Jarmu jarmu = jarmuvek_tableview.getSelectionModel().getSelectedItem();
 
         if(jarmu != null)
         {
-            if(jarmu.getTulajdonos() != null && jarmu.getSofor() != null && jarmu.getTulajdonos().getNev() != "Nincs" && jarmu.getSofor().getNev() != "Nincs")
+            if(jarmu.getTulajdonos() != null && jarmu.getSofor() != null && jarmu.getTulajdonos().getNev() != "Nincs" && jarmu.getSofor().getNev() != "Nincs") // Ha van tulajdonos és sofőr, akkor megpróbáljuk beindítani
             {
                 Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).beinditas();
             }
@@ -407,7 +407,7 @@ public class Controller implements Initializable {
                     Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setSofor(jb_sofor.getValue());
                     Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setTulajdonos(jb_tulajdonos.getValue());
 
-                    if(Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).getSofor().getJogositvany().jogositvanyKod != -1)
+                    if(Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).getSofor().getJogositvany().jogositvanyKod != -1) //A sofőrnek kell érvényes jogosítványnak lennie, szóval nem lehet az id -1
                     {
                         Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setSofor(jb_sofor.getValue());
                         Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setTulajdonos(jb_tulajdonos.getValue());
@@ -435,7 +435,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    protected void jb_leallit_onaction()
+    protected void jb_leallit_onaction() //Motor leállítása
     {
         Jarmu jarmu = jarmuvek_tableview.getSelectionModel().getSelectedItem();
 

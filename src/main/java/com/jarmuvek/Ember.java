@@ -26,7 +26,7 @@ public class Ember {
         this.azonosito = id;
     }
 
-    public Ember(String nev, int kor, int id, boolean ervenyes)
+    public Ember(String nev, int kor, int id, boolean ervenyes) //Null érték elkerülése, egy harmadik konstruktor ami előre beállít jogosítványt
     {
         this.nev = nev;
         this.kor = kor;
@@ -63,7 +63,7 @@ public class Ember {
 
     }
 
-    public String getJogositvanyValidity() {
+    public String getJogositvanyValidity() { //Jogosítvány érvényességének ellenőrzése, TableColumn innen kapja az értéket
         int id = this.getJogositvany().jogositvanyKod;
         if(id > 0)
         {

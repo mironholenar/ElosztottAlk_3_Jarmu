@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("jarmuvek.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        Scene scene = new Scene(fxmlLoader.load(), 1280, 720); //Az ablak alapértelmezett felbontása 1280x720
         stage.setTitle("Elosztott Alkalmazások 3 Járművek - XJI55S - VVV7IG");
         stage.setScene(scene);
         stage.show();
@@ -37,7 +37,7 @@ public class Main extends Application {
 
 
 
-    public static void Listazas()
+    public static void Listazas() //Konzol alapú menü
     {
         Scanner scan = new Scanner(System.in);
         System.out.println();
