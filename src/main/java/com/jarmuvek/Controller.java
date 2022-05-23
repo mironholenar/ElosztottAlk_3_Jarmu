@@ -220,7 +220,7 @@ public class Controller implements Initializable {
 
         jb_sofor.getItems().clear();
         jb_sofor.getItems().addAll(Main.Emberek);
-        jb_tulajdonos.setValue(Main.Emberek.get(0));
+        jb_sofor.setValue(Main.Emberek.get(0));
 
     }
 
