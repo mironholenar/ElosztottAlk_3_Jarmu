@@ -288,11 +288,12 @@ public class Controller implements Initializable {
 
         if(ember != null)
         {
-            if(ember.getJogositvany().jogositvanyKod != -1)
+            if(ember.getJogositvany().jogositvanyKod == -1)
             {
                 if(ember.getKor() >= 18)
                 {
-                    Main.Emberek.get(Main.Emberek.indexOf(ember)).getJogositvany();
+                    Main.Emberek.get(Main.Emberek.indexOf(ember)).jogositvanySzerzes();
+                    refreshTableViewContent();
                 }
                 else
                 {
@@ -402,6 +403,9 @@ public class Controller implements Initializable {
             {
                 if(jb_tulajdonos.getValue() != null && jb_sofor.getValue() != null)
                 {
+                    Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setSofor(jb_sofor.getValue());
+                    Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setTulajdonos(jb_tulajdonos.getValue());
+
                     if(Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).getSofor().getJogositvany().jogositvanyKod != -1)
                     {
                         Main.Jarmuvek.get(Main.Jarmuvek.indexOf(jarmu)).setSofor(jb_sofor.getValue());
